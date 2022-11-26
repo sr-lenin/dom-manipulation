@@ -62,3 +62,18 @@ function seventhTask() {
     todos.classList.add('todo-list')
 }
 seventhTask()
+
+// tarea 8
+const eighthTask =() => {
+    const getbutton = document.querySelector('#butonn')
+    getbutton.type = 'button'
+}
+eighthTask()
+
+// tarea 9 
+function ninethTask() {
+    const getul = document.querySelector('.todo-list')
+    console.log(getul);
+        getul.style.listStyle = 'none'
+}
+ninethTask()

@@ -81,3 +81,6 @@ taskInput.value = "fecha"
 const h2Element = document.createElement('h2')
 h2Element.textContent = 'Task Form'
 ```
+
+## Abrir el Preview del MarkDown(.md) en VSCode
+`Ctrl + P`, `>`, `Markdown`

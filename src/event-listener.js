@@ -35,59 +35,48 @@ addEventToForm.addEventListener('submit', (event) => {
 })
 */
 
-
-// agregar un eventlitener al formulario para el evento submit 
+// tarea 1
+// agregar un eventlitener al formulario para el evento submit
 // validar que el input task y el taskdate no esten vacios si lo estan lanzar un error con el mensaje formulario invalido
-// si tienen valores crear un elemento li ponerle de texto el valor del input task 
+// si tienen valores crear un elemento li ponerle de texto el valor del input task
 // cambiar el estilo al li color ponerlo azul
 // agrregar el li al ul
 
+const addEventToForm = document.querySelector("#task-form");
+const callUl = document.querySelector("#todo-list");
 
-const addEventToForm = document.querySelector('#task-form')
-addEventToForm.addEventListener('submit', (event) => {
-    event.preventDefault()
+addEventToForm.addEventListener("submit", (event) => {
+    event.preventDefault();
     const getInputTask = event.target.children.task;
-
     const getInputDate = event.target.children.taskdate;
 
-    if (getInputTask.value === "" || getInputDate.value === "" ) {
-        throw new Error(' formulario invalido ')
+    if (getInputTask.value === "" || getInputDate.value === "") {
+        throw new Error(" formulario invalido ");
     }
-    console.log(' el valor de input task es ' + getInputTask.value);
-    console.log(' el valor de date es ' + getInputDate.value);
 
-})
-const callUl = document.querySelector('#todo-list')
-function alfin () {
-const createLi = document.createElement('li')
-createLi.textContent = 'el valor del input task'
-createLi.style.color = ' red'
-callUl.prepend(createLi)
-}
-alfin()
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const eventform = document.querySelector('#task-form input[name="task"]')
-
-// eventform.addEventListener('submit', (event) => {
-//     event.preventDefault()
-//     const getInputTask = event.target.children.task;
-//     const getInputDate = event.target.children.taskdate;
-//     if(getInputTask.value === "" || getInputDate.value === ""){
-//         throw new Error('formulario invalido')
-//     }
-//     //  console.log("el valor de input task es: " + getInputTask.value);
-//     //  console.log("el valor de input taskdate es: " + getInputDate.value);
+    console.log(" el valor de input task es " + getInputTask.value);
+    console.log(" el valor de date es " + getInputDate.value);
     
-// })
+    const today = new Date().toISOString().split("T")[0];
+    if (getInputDate.value >= today) {
+        editList(getInputTask.value, "blue");
+        return;
+    }
+    
+    editList(getInputTask.value);
+    
+});
+
+function editList(value, color = "red") {
+    const createLi = document.createElement("li");
+    createLi.textContent = value;
+    createLi.style.color = color;
+    callUl.prepend(createLi);
+}
+
+// tarea 2
+// crear una funcion que cree un boton con el texto que se le pase en el primer argumento, y le ponga el color que se le pase en el segundo argumento, si no se le pasa el segundo argumento que sea azul.
+// cambiar la funcion editList para que use la funcion que creaste para crear dos botones y agregarlo al li, un boton con el texto editar y otro con el texto eliminar
+
+
+// NOTA: la funcion debe retornar el boton creado osea usar `return`

@@ -53,16 +53,13 @@ addEventToForm.addEventListener("submit", (event) => {
     if (getInputTask.value === "" || getInputDate.value === "") {
         throw new Error(" formulario invalido ");
     }
-
-    console.log(" el valor de input task es " + getInputTask.value);
-    console.log(" el valor de date es " + getInputDate.value);
     
     const today = new Date().toISOString().split("T")[0];
     if (getInputDate.value >= today) {
         editList(getInputTask.value, "blue");
         return;
     }
-    
+
     editList(getInputTask.value);
     
 });
@@ -71,6 +68,13 @@ function editList(value, color = "red") {
     const createLi = document.createElement("li");
     createLi.textContent = value;
     createLi.style.color = color;
+   
+    const editButton = createButton('editar', undefined, () => console.log('me hicieron click editar')) // se guarda lo que retorna la funcion
+    const deleteButton = createButtonTest({ value: 'eliminar', onClick: () => console.log('me hicien click eliminar') })
+    
+    createLi.append(editButton)
+    createLi.append(deleteButton)
+    
     callUl.prepend(createLi);
 }
 
@@ -80,3 +84,28 @@ function editList(value, color = "red") {
 
 
 // NOTA: la funcion debe retornar el boton creado osea usar `return`
+
+
+
+function createButton(value, color = "blue", onClick) {
+    const button = document.createElement("button");
+    button.textContent = value;
+    button.style.color = color;
+    button.onclick = (e) => onClick(e)
+    return button
+}
+
+
+
+function createButtonTest({ value, color = "blue", onClick }) {
+    // const value = props.value
+    // const color = props.color
+    // const onClick = props.onClick
+
+    const button = document.createElement("button");
+    button.textContent = value;
+    button.style.color = color;
+    button.addEventListener('click', (e) => onClick(e)) 
+    return button
+}
+

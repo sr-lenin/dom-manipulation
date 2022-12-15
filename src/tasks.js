@@ -1,17 +1,15 @@
 // tarea 3
-// crear un funcion con argumentos nombrados, que cree un formulario, 
-// que le ponga los inputs que reciba por argumento, 
+// crear un funcion con argumentos nombrados, que cree un formulario,
+// que le ponga los inputs que reciba por argumento,
 // le agregue un boton que diga enviar,
 // y que le ponga un event listerner al evento submit,
 
 // Respuesta correcta
 // {
 // inputs, onSubmit
-//} 
-
+//}
 
 // { inputs: [inpu21, input1] }
-
 
 /* const taskForm = document.querySelector('#former')
 
@@ -35,23 +33,54 @@ const form = createForm(parametros)
 
 
 taskForm.prepend(form) */
-
-function firstFunction(params) {
-    const createUl = document.createElement('ul')
+/* 
+function firstFunction({ liElements }) {
+  const createUl = document.createElement("ul");
+  liElements.forEach((li) => {
+    createUl.append(li);
+  });
+  const createButton = document.createElement("button");
+  createButton.addEventListener("click", () => {
+      console.log("clicked");
+    });
     
+    createUl.append(createButton);
+  return createUl;
+}
+const li = document.createElement("li");
+li.textContent = "mi li";
+const ul = firstFunction({ liElements: [li] });
+ */
+
+const lenin = ({liElement}) => {
+    const createUl = document.createElement('ul')
+    liElement.forEach((li) => {
+        createUl.append(li);
+    });
+    const createButton = document.createElement('button')
+    createButton.textContent = 'eliminar'
+    createButton.addEventListener('click', () => {
+        console.log('hizo click');
+    })
+    
+    createUl.append('createButton')
+    return createUl;   
 }
 
+    const li = document.createElement('li')
+    li.textContent = 'say hi';
+    const ul = lenin({liElement: [li]})
 // tarea 4
-// crear un funcion con argumentos nombrados, que cree un ul, 
-// que le ponga los li que reciba por argumento, 
+// crear un funcion con argumentos nombrados, que cree un ul,
+// que le ponga los li que reciba por argumento,
 // le agregue un boton que diga Eliminar,
 // y que le ponga un event listerner al evento click del boton,
 
 // Respuesta correcta
 // {
 // liElements, onClick
-//} 
+//}
 // { inputs: [inpu21, input1] }
 
 // Investigar
-// Los metodos para recorrer un array y repasar for, for in, for of, while, do while, 
+// Los metodos para recorrer un array y repasar for, for in, for of, while, do while,

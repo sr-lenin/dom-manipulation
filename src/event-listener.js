@@ -75,6 +75,7 @@ function editList(value, color = "red") {
     createLi.append(editButton)
     createLi.append(deleteButton)
     
+    
     callUl.prepend(createLi);
 }
 
